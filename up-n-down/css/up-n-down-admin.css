@@ -1,0 +1,9 @@
+legend {
+	display: none;
+}
+
+label {
+	display: inline-block;
+
+	min-width: 7em;
+}

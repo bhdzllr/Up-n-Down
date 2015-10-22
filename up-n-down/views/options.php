@@ -1,0 +1,74 @@
+<div class="wrap">
+	<h1>Up-n-Down</h1>
+
+	<p>Append form to post or use shortcode: <code>[Up-n-Down]</code></p>
+
+	<form id="upndown-options" method="post" action="<?php echo admin_url( 'options.php' ); ?>">
+		<fieldset>
+			<legend>Options</legend>
+			<?php 
+
+			settings_fields( 'upndown_options' ); 
+			do_settings_sections( 'up-n-down.php' ); 
+
+			?>
+
+			<p>
+				<label for="upndown-post-id">Target post id:</label>
+				<select name="upndown_options[target_post_id]" id="upndown-target-post-id">
+					<option value="0">&mdash; Auswählen &mdash;</option>
+				<?php foreach ( $this->posts as $post ) : ?>
+					<?php if ( $post['ID'] == $this->options['target_post_id']) : ?>
+					<option value="<?php echo $post['ID']; ?>" selected="selected"><?php echo $post['title']; ?></option>
+					<?php else: ?>
+					<option value="<?php echo $post['ID']; ?>"><?php echo $post['title']; ?></option>
+					<?php endif; ?>
+				<?php endforeach; ?>
+				</select>
+			</p>
+
+			<p>
+				<label for="upndown-target-dir">Folder name:</label>
+				<input type="text" name="upndown_options[target_dir]" id="upndown-target-dir" value="<?php if ( $this->options['target_dir'] ) echo $this->options['target_dir']; ?>" placeholder="Uploads folder name ..." />
+			</p>
+
+			<p>
+				<?php if ( isset( $this->options['hide_upload'] ) ) : ?>
+				<input type="checkbox" name="upndown_options[hide_upload]" id="upndown-hide-upload" checked="checked" />
+				<?php else : ?>
+				<input type="checkbox" name="upndown_options[hide_upload]" id="upndown-hide-upload" />
+				<?php endif; ?>
+				<label for="upndown-hide-upload">Hide upload for public.</label>
+			</p>
+
+			<p>
+				<?php if ( isset( $this->options['hide_login'] ) ) : ?>
+				<input type="checkbox" name="upndown_options[hide_login]" id="upndown-hide-login" checked="checked" />
+				<?php else : ?>
+				<input type="checkbox" name="upndown_options[hide_login]" id="upndown-hide-login" />
+				<?php endif; ?>
+				<label for="upndown-hide-login">Hide login form.</label>
+			</p>
+
+			<p>
+				<?php if ( isset( $this->options['show_files'] ) ) : ?>
+				<input type="checkbox" name="upndown_options[show_files]" id="upndown-show-files" checked="checked" />
+				<?php else : ?>
+				<input type="checkbox" name="upndown_options[show_files]" id="upndown-show-files" />
+				<?php endif; ?>
+				<label for="upndown-show-files">Show files for public.</label>
+			</p>
+
+			<p>
+				<?php if ( isset( $this->options['show_admin_bar'] ) ) : ?>
+				<input type="checkbox" name="upndown_options[show_admin_bar]" id="upndown-show-admin-bar" checked="checked" />
+				<?php else : ?>
+				<input type="checkbox" name="upndown_options[show_admin_bar]" id="upndown-show-admin-bar" />
+				<?php endif; ?>
+				<label for="upndown-show-admin-bar">Show admin bar for subscribers.</label>
+			</p>
+
+			<?php submit_button(); ?>
+		</fieldset>
+	</form>
+</div>

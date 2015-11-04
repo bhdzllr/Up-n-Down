@@ -1,3 +1,14 @@
+form div {
+	margin: 1em 0;
+}
+
+.form-help {
+	margin: 0;
+
+	color: #999999;
+	font-size: 0.9em;
+}
+
 legend {
 	display: none;
 }

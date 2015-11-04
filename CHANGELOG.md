@@ -3,7 +3,9 @@
 
 ## HEAD ##
 
-* null
+* Basic style.
+* Screenshots.
+* Fix error with output message for wrong login data.
 
 
 ## Version 1.0.0 ##

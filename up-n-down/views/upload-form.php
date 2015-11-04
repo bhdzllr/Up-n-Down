@@ -14,12 +14,12 @@
 <?php endif; ?>
 
 <?php if ( is_user_logged_in() || isset( $this->options['show_files'] ) ) : ?>
-<ul>
+<ul class="upndown-file-list">
 <?php foreach ( $this->files as $file ) : ?>
 	<li>
 		<a href="<?php echo $file['path']; ?>" title="Download <?php echo $file['name']; ?>" download="<?php echo $file['name']; ?>"><?php echo $file['name']; ?></a>
 		<?php if ( current_user_can( 'delete_pages' ) ) : ?>
-		<a href="<?php echo $this->permalink; ?>?upndown-delete-file=<?php echo $file['name']; ?>" title="Delete <?php echo $file['name']; ?>">Delete</a>
+		<a href="<?php echo $this->permalink; ?>?upndown-delete-file=<?php echo $file['name']; ?>" title="Delete <?php echo $file['name']; ?>" class="upndown-delete-file">&times;</a>
 		<?php endif; ?>
 	</li>
 <?php endforeach; ?>
@@ -31,13 +31,18 @@
 	<fieldset>
 		<legend>User Action</legend>
 
-		<label for="upndown-username">Username: </label>
-		<input type="text" name="upndown-username" id="upndown-username" placeholder="Username ..."/>
-
-		<label for="upndown-password">Password: </label>
-		<input type="password" name="upndown-password" id="upndown-password" placeholder="Password ..."/>
-
+		<div>
+			<label for="upndown-username">Username: </label>
+			<input type="text" name="upndown-username" id="upndown-username" placeholder="Username ..."/>
+		</div>
+		
+		<div>
+			<label for="upndown-password">Password: </label>
+			<input type="password" name="upndown-password" id="upndown-password" placeholder="Password ..."/>
+		</div>
+		
 		<input type="submit" name="upndown-submit-login" id="upndown-submit-login" value="Login" />
+	
 	</fieldset>
 </form>
 <?php endif; ?>

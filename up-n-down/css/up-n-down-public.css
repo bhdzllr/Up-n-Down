@@ -1,0 +1,73 @@
+#upndown-upload-form fieldset,
+#upndown-login-form fieldset,
+#upndown-logout-form fieldset {
+}
+
+#upndown-upload-form legend,
+#upndown-login-form legend,
+#upndown-logout-form legend {
+	display: none;
+}
+
+#upndown-upload-form,
+#upndown-login-form,
+#upndown-logout-form,
+.upndown-file-list {
+	margin: 1em 0;
+}
+
+#upndown-login-form div {
+	margin: 0.5em 0;
+}
+
+#upndown-file {
+	width: 100%;
+
+	cursor: pointer;
+}
+
+label[for="upndown-username"],
+label[for="upndown-password"] {
+	display: inline-block;
+	vertical-align: baseline;
+
+	width: 22%;
+}
+
+#upndown-username,
+#upndown-password {
+	width: 77%;
+}
+
+#upndown-submit-upload,
+#upndown-submit-login {
+	float: right;
+
+	margin: 0.5em 0;
+}
+
+#upndown-submit-login {
+	margin: 0 0 0.5em 0;
+}
+
+#upndown-submit-logout {
+	display: block;
+
+	margin: 0.5em auto;
+}
+
+.upndown-delete-file {
+	margin: 0 0 0 0.5em;
+
+	border: 0px solid;
+
+	font-size: 1.125em;
+}
+
+.success {
+	color: #26A65B;
+}
+
+.error {
+	color: #D91E18;
+}

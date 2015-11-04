@@ -13,7 +13,7 @@
 
 			?>
 
-			<p>
+			<div>
 				<label for="upndown-post-id">Target post id:</label>
 				<select name="upndown_options[target_post_id]" id="upndown-target-post-id">
 					<option value="0">&mdash; Auswählen &mdash;</option>
@@ -25,48 +25,49 @@
 					<?php endif; ?>
 				<?php endforeach; ?>
 				</select>
-			</p>
+			</div>
 
-			<p>
+			<div>
 				<label for="upndown-target-dir">Folder name:</label>
 				<input type="text" name="upndown_options[target_dir]" id="upndown-target-dir" value="<?php if ( $this->options['target_dir'] ) echo $this->options['target_dir']; ?>" placeholder="Uploads folder name ..." />
-			</p>
+				<p class="form-help">Stored in WP uploads folder.</p>
+			</div>
 
-			<p>
+			<div>
 				<?php if ( isset( $this->options['hide_upload'] ) ) : ?>
 				<input type="checkbox" name="upndown_options[hide_upload]" id="upndown-hide-upload" checked="checked" />
 				<?php else : ?>
 				<input type="checkbox" name="upndown_options[hide_upload]" id="upndown-hide-upload" />
 				<?php endif; ?>
 				<label for="upndown-hide-upload">Hide upload for public.</label>
-			</p>
+			</div>
 
-			<p>
+			<div>
 				<?php if ( isset( $this->options['hide_login'] ) ) : ?>
 				<input type="checkbox" name="upndown_options[hide_login]" id="upndown-hide-login" checked="checked" />
 				<?php else : ?>
 				<input type="checkbox" name="upndown_options[hide_login]" id="upndown-hide-login" />
 				<?php endif; ?>
 				<label for="upndown-hide-login">Hide login form.</label>
-			</p>
+			</div>
 
-			<p>
+			<div>
 				<?php if ( isset( $this->options['show_files'] ) ) : ?>
 				<input type="checkbox" name="upndown_options[show_files]" id="upndown-show-files" checked="checked" />
 				<?php else : ?>
 				<input type="checkbox" name="upndown_options[show_files]" id="upndown-show-files" />
 				<?php endif; ?>
 				<label for="upndown-show-files">Show files for public.</label>
-			</p>
+			</div>
 
-			<p>
+			<div>
 				<?php if ( isset( $this->options['show_admin_bar'] ) ) : ?>
 				<input type="checkbox" name="upndown_options[show_admin_bar]" id="upndown-show-admin-bar" checked="checked" />
 				<?php else : ?>
 				<input type="checkbox" name="upndown_options[show_admin_bar]" id="upndown-show-admin-bar" />
 				<?php endif; ?>
 				<label for="upndown-show-admin-bar">Show admin bar for subscribers.</label>
-			</p>
+			</div>
 
 			<?php submit_button(); ?>
 		</fieldset>

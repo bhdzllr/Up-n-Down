@@ -14,6 +14,13 @@ It has a settings menu which allows to
 Up-n-Down can also be used as shortcode `[Up-n-Down]`.
 
 
+## Screenshots ##
+
+![Upload](res/screenshots/screenshot-1-upload.png "Up-n-Down Upload Example")
+![Download](res/screenshots/screenshot-2-download.png "Up-n-Down Download Example")
+![Settings](res/screenshots/screenshot-3-settings.png "Up-n-Down Settings")
+
+
 ## Requirements (untested) ##
 
 * WordPress 3+
@@ -24,3 +31,5 @@ Up-n-Down can also be used as shortcode `[Up-n-Down]`.
 
 * [ ] Translate plugin.
 * [ ] Allow upload of multiple files.
+* [x] Basic style.
+* [x] Add screenshots.

@@ -44,7 +44,10 @@ class UpNDown_Public {
 	public function __construct() {
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'the_post', array( $this, 'get_post_data' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'stylesnscripts' ) );
+
 		add_filter( 'the_content', array( $this, 'append_upload' ) );
+
 		add_shortcode( 'Up-n-Down', array( $this, 'upndown_shortcode' ) );
 		add_shortcode( 'up-n-down', array( $this, 'upndown_shortcode' ) );
 	}
@@ -86,7 +89,10 @@ class UpNDown_Public {
 			if ( ! is_wp_error( $user ) ) {
 				wp_set_current_user( $user->ID );
 			} else {
-				$this->messages[] = $user->get_error_message();
+				$this->messages[] = array(
+					'type' => 'error',
+					'text' => $user->get_error_message()
+				);
 			}
 		} else if ( isset( $_POST['upndown-submit-logout'] ) ) {
 			wp_logout();
@@ -108,6 +114,13 @@ class UpNDown_Public {
 		$this->permalink = get_permalink( $this->post_id );
 
 		return true;
+	}
+
+	/**
+	 * Enqueue styles and scripts for backend.
+	 */
+	public function stylesnscripts() {
+		wp_enqueue_style( 'up-n-down-public', plugin_dir_url( __FILE__ ) . 'css/up-n-down-public.css' );
 	}
 
 	/**

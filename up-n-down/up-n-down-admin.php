@@ -56,7 +56,7 @@ class UpNDown_Admin {
 	 * Enqueue styles and scripts for backend.
 	 */
 	public function stylesnscripts() {
-		wp_enqueue_style( 'up-n-down', plugin_dir_url( __FILE__ ) . 'css/up-n-down-admin.css' );
+		wp_enqueue_style( 'up-n-down-admin', plugin_dir_url( __FILE__ ) . 'css/up-n-down-admin.css' );
 	}
 
 	/**

@@ -265,7 +265,7 @@ class UpNDown_Public {
 	private function render( $content ) {
 		ob_start();
 		
-		require_once( 'views/upload-form.php' );
+		include_once 'views/upload-form.php';
 		$output = ob_get_clean();
 		$content .= $output;
 

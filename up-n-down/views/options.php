@@ -30,7 +30,7 @@
 			<div>
 				<label for="upndown-target-dir">Folder name:</label>
 				<input type="text" name="upndown_options[target_dir]" id="upndown-target-dir" value="<?php if ( $this->options['target_dir'] ) echo $this->options['target_dir']; ?>" placeholder="Uploads folder name ..." />
-				<p class="form-help">Stored in WP uploads folder.</p>
+				<p class="form-help">Stored in WP uploads folder. Do not include leading or trailing slash.</p>
 			</div>
 
 			<div>

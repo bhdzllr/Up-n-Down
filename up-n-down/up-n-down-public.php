@@ -215,8 +215,13 @@ class UpNDown_Public {
 				while ( ( $file = readdir( $handler ) ) !== false ) {
 					if( $file != '.' && $file != '..' ) {
 						$filename = $file;
-						$filepath = $this->site_url_down . $this->target_dir . '/' . $file;
-
+	
+						if ( empty( $this->target_dir ) ) {
+							$filepath = $this->site_url_down . '/' . $file;
+						} else {
+							$filepath = $this->site_url_down . '/' . $this->target_dir . '/' . $file;
+						}
+	
 						$this->files[] = array(
 							'name' => $filename,
 							'path' => $filepath

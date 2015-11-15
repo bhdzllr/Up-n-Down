@@ -6,6 +6,7 @@
 * Basic style.
 * Screenshots.
 * Fix error with output message for wrong login data.
+* Fix error with upload path.
 
 
 ## Version 1.0.0 ##

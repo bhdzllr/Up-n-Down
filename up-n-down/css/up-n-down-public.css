@@ -26,8 +26,8 @@
 	cursor: pointer;
 }
 
-label[for="upndown-username"],
-label[for="upndown-password"] {
+#upndown-login-form label[for="upndown-username"],
+#upndown-login-form label[for="upndown-password"] {
 	display: inline-block;
 	vertical-align: baseline;
 
@@ -64,10 +64,10 @@ label[for="upndown-password"] {
 	font-size: 1.125em;
 }
 
-.success {
+.upndown-success {
 	color: #26A65B;
 }
 
-.error {
+.upndown-error {
 	color: #D91E18;
 }

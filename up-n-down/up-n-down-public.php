@@ -7,10 +7,11 @@
  */
 class UpNDown_Public {
 
-	/** @var int Post id of current post. */
+	/**
+	 * @var int Post id of current post.
+	 * @var string Full URL to uploaded file (the permalink).
+	 */
 	private $post_id;
-
-	/** @var string Full URL to uploaded file (the permalink). */
 	private $permanlink;
 
 	/**
@@ -23,13 +24,13 @@ class UpNDown_Public {
 	/** @var arry Array for plugin options */ 
 	private $options = array();
 
-	/** @var int Post ID to append the upload. */
+	/**
+	 * @var int Post ID to append the upload.
+	 * @var string Name of upload directory.
+	 * @var string Path to upload directory.
+	 **/
 	private $target_post_id;
-
-	/** @var string Name of upload directory. */
 	private $target_dir;
-
-	/** @var string Path to upload directory. */
 	private $target_dir_path;
 
 	/** @var array Array for already uploaded files in target directory. */
@@ -279,7 +280,7 @@ class UpNDown_Public {
 	 */
 	private function msg_class() {
 		$classes = implode(' ', array_map( function( $msg ) {
-			return $msg['type'];
+			return 'upndown-' . $msg['type'];
 		}, $this->messages));
 
 		return 'class="' . $classes . '"';

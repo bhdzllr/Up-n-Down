@@ -1,19 +1,19 @@
-form div {
+.upndown-wrap form div {
 	margin: 1em 0;
 }
 
-.form-help {
+.upndown-wrap .form-help {
 	margin: 0;
 
 	color: #999999;
 	font-size: 0.9em;
 }
 
-legend {
+.upndown-wrap legend {
 	display: none;
 }
 
-label {
+.upndown-wrap label {
 	display: inline-block;
 
 	min-width: 7em;

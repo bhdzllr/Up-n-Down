@@ -8,6 +8,8 @@
 * Fix error with output message for wrong login data.
 * Fix error with upload path.
 * Replace "require_once" with "include_once" for view files.
+* Fix global admin styles.
+
 
 ## Version 1.0.0 ##
 

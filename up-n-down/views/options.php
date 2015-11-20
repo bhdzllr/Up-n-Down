@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap upndown-wrap">
 	<h1>Up-n-Down</h1>
 
 	<p>Append form to post or use shortcode: <code>[Up-n-Down]</code></p>

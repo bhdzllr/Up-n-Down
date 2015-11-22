@@ -69,6 +69,15 @@
 				<label for="upndown-show-admin-bar">Show admin bar for subscribers.</label>
 			</div>
 
+			<div>
+				<?php if ( isset( $this->options['allow_subscribers_delete'] ) ) : ?>
+				<input type="checkbox" name="upndown_options[allow_subscribers_delete]" id="upndown-allow-subscribers-delete" checked="checked" />
+				<?php else : ?>
+				<input type="checkbox" name="upndown_options[allow_subscribers_delete]" id="upndown-allow-subscribers-delete" />
+				<?php endif; ?>
+				<label for="upndown-allow-subscribers-delete">Allow subscribers to delete files.</label>
+			</div>
+
 			<?php submit_button(); ?>
 		</fieldset>
 	</form>

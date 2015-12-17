@@ -40,13 +40,15 @@ class UpNDown_Admin {
 			);
 		} }
 
-		register_setting( 'upndown_options', 'upndown_options', array( $this,'validate_options' ) );
+		register_setting( 'upndown_options', 'upndown_options', array( $this, 'validate_options' ) );
 
 		$this->options = get_option( 'upndown_options', true );
 	}
 
 	/**
 	 * Add settings page.
+	 *
+	 * @link https://codex.wordpress.org/Creating_Options_Pages#Example_.232
 	 */
 	public function register_settings() {
 		add_options_page( 'Up-n-Down', 'Up-n-Down', 'manage_options', 'up-n-down.php', array ( $this, 'render_settings_page' ) );
@@ -74,6 +76,9 @@ class UpNDown_Admin {
 		} else {
 			$input['target_dir'] = trim( $input['target_dir'] );
 		}
+
+		$mimeTypes = trim( $input['mime_types'] );
+		$input['mime_types'] = explode( ',' , $mimeTypes );
 
 		return $input;
 	}

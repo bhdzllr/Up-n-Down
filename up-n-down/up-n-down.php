@@ -27,6 +27,7 @@ class UpNDown_Main {
 	private function __construct() {
 		register_activation_hook( __FILE__, array ( $this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array ( $this, 'deactivate' ) );
+		register_uninstall_hook( __FILE__, 'uninstall' );
 
 		if ( is_admin() ) {
 			// Back-End
@@ -66,12 +67,32 @@ class UpNDown_Main {
 	/**
 	 * Plugin activation.
 	 */
-	public function activate() {}
+	public function activate() {
+		$options = get_option( 'upndown_options' );
+		$options['mime_types'] = array(
+			'application/pdf',
+			'image/jpeg',
+			'image/jpg',
+			'image/png',
+			'image/gif',
+			'text/plain'
+		);
+
+		update_option( 'upndown_options', $options );
+	}
 
 	/**
 	 * Plugin deactivation.
 	 */
 	public function deactivate() {}
+
+	/**
+	 * Plugin uninstall.
+	 */
+	public function uninstall() {
+		delete_option( 'upndown_options' );
+		flush_rewrite_rules();
+	}
 
 }
 

@@ -29,7 +29,7 @@
 
 			<div>
 				<label for="upndown-target-dir">Folder name:</label>
-				<input type="text" name="upndown_options[target_dir]" id="upndown-target-dir" value="<?php if ( $this->options['target_dir'] ) echo $this->options['target_dir']; ?>" placeholder="Uploads folder name ..." />
+				<input type="text" name="upndown_options[target_dir]" id="upndown-target-dir" value="<?php if ( isset( $this->options['target_dir'] ) ) echo $this->options['target_dir']; ?>" placeholder="Uploads folder name ..." />
 				<p class="form-help">Stored in WP uploads folder. Do not include leading or trailing slash.</p>
 			</div>
 
@@ -76,6 +76,17 @@
 				<input type="checkbox" name="upndown_options[allow_subscribers_delete]" id="upndown-allow-subscribers-delete" />
 				<?php endif; ?>
 				<label for="upndown-allow-subscribers-delete">Allow subscribers to delete files.</label>
+			</div>
+
+			<div>
+				<p><label for="upndown-mime-types">MIME-Types:</label></p>
+				<textarea 
+					name="upndown_options[mime_types]"
+					id="upndown-mime-types" 
+					cols="30"
+					rows="3"
+					placeholder="Allowed MIME-Types ..."><?php if ( isset( $this->options['mime_types'] ) ) echo implode( ',', $this->options['mime_types'] ); ?></textarea>
+				<p class="form-help">Allowed MIME-Types, separated with comma.</p>
 			</div>
 
 			<?php submit_button(); ?>

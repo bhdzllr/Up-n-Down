@@ -158,7 +158,7 @@ class UpNDown_Public {
 	/**
 	 * Upload files.
 	 *
-	 * @link   http://php.net/manual/en/features.file-upload.php Documentation and source of code.
+	 * @link http://php.net/manual/en/features.file-upload.php Documentation and source of code.
 	 */
 	private function upload() {
 		try {
@@ -180,7 +180,16 @@ class UpNDown_Public {
 					throw new RuntimeException( 'Unknown errors.' );
 			}
 
-			if( file_exists( $this->target_dir_path . '/' . $_FILES['upndown-file']['name'] ) 
+			$finfo = new finfo(FILEINFO_MIME_TYPE);		
+			if ( false === $ext = array_search(
+				$finfo->file( $_FILES['upndown-file']['tmp_name'] ),
+				$this->options['mime_types'],
+				true
+			) ) {
+				throw new RuntimeException( 'Invalid file format.' );
+			}
+
+			if ( file_exists( $this->target_dir_path . '/' . $_FILES['upndown-file']['name'] ) 
 				|| is_uploaded_file( $this->target_dir_path . '/' . $_FILES['upndown-file']['name'] )
 			) {
 				throw new RuntimeException( 'File with same name already exists.' );
@@ -188,7 +197,7 @@ class UpNDown_Public {
 
 			if ( ! move_uploaded_file(
 				$_FILES['upndown-file']['tmp_name'], 
-				$this->target_dir_path . '/' . $_FILES['upndown-file']['name'] 
+				$this->target_dir_path . '/' . $_FILES['upndown-file']['name'] // New file name
 			) ) {
 				throw new RuntimeException( 'Failed to move uploaded file.' );
 			}
@@ -197,7 +206,7 @@ class UpNDown_Public {
 				'type' => 'success',
 				'text' => 'File uploaded successfully.'
 			);
-		} catch (RuntimeException $e) {
+		} catch ( RuntimeException $e ) {
 			$this->messages[] = array(
 				'type' => 'error',
 				'text' => $e->getMessage()

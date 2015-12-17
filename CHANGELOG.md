@@ -10,6 +10,7 @@
 * Replace "require_once" with "include_once" for view files.
 * Fix global admin styles.
 * Allow subscribers to delete files as option.
+* Add option for allowed MIME-Types.
 
 
 ## Version 1.0.0 ##

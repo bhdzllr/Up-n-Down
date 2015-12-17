@@ -31,5 +31,6 @@ Up-n-Down can also be used as shortcode `[Up-n-Down]`.
 
 * [ ] Translate plugin.
 * [ ] Allow upload of multiple files.
+* [x] Check file MIME-Type.
 * [x] Basic style.
 * [x] Add screenshots.

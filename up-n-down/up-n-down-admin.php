@@ -87,7 +87,7 @@ class UpNDown_Admin {
 	 * Render settings page.
 	 */
 	public function render_settings_page() {
-		include_once 'views/options.php';
+		include_once 'templates/options.php';
 	}
 
 }
